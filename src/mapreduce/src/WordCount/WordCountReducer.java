@@ -1,0 +1,25 @@
+package WordCount;
+
+// exceptions import
+import java.io.IOException;
+
+// import box classes
+import org.apache.hadoop.io.IntWritable;
+import org.apache.hadoop.io.Text;
+
+// import reducer class
+import org.apache.hadoop.mapreduce.Reducer;
+import org.apache.hadoop.mapreduce.Reducer.Context;
+
+public class WordCountReducer extends Reducer<Text, IntWritable, Text, IntWritable> {
+
+	@Override
+	public void reduce(Text key, Iterable<IntWritable> values, Context context)
+			throws IOException, InterruptedException {
+		int y = 0;
+		for (IntWritable x : values) {
+			y++;
+		}
+		context.write(key, new IntWritable(y));
+	}
+}
