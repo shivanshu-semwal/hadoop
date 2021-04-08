@@ -1,5 +1,73 @@
 # MapReduce
 
+## Box Classes
+
+`Serialization` is the process of converting object data into byte stream data for transmission over a network across different nodes in a cluster or for persistent data storage.
+
+Since hadoop use serilization for optimization, native java wrapper class are not used, but rather box classes similar to them are used in MapReduce programs.
+
+Java Native | MapReduce  | Import 
+---|---|---
+`Boolean` |`BooleanWritable`| `import org.apache.hadoop.io.BooleanWritable`
+`Byte` |`ByteWritable`| `import org.apache.hadoop.io.ByteWritable`
+`Integer` |`IntWritable`| `import org.apache.hadoop.io.IntWritable;`
+`long int` | `VIntWritable`| `import org.apache.hadoop.io.VIntWritable`
+`Float` | `FloatWritable`| `import org.apache.hadoop.io.FloatWritable`
+`Long` | `LongWritable`| `import org.apache.hadoop.io.LongWritable;`
+`long long` | `VLongWritable`| `import org.apache.hadoop.io.VLongWritable`
+`Double` |`DoubleWritable`| `import org.apache.hadoop.io.DoubleWritable;`
+`String` | `Text` | `import org.apache.hadoop.io.Text;`
+
+## Mapper Class
+
+Any mapper class for a `MapReduce` program extends the abstract `Mapper` class.
+And then we have to override the `map` function, which takes the `key-value` pair and reference to a `Context` variable, which is them handled by the `reduce` function.
+
+Basic template for a mapper class -
+```java
+public class [mapper-class] extends Mapper<[key-type1], [value-type-1], [key-type-2], [value-type-2]> {
+	public void map([key-type-1] key, [value-type-1] value, Context context) {
+        // body of mapper
+    }
+}
+```
+
+## Reducer Class
+
+Reducer class for a `MapReduce` program extends the abstract class `Reducer`. The `reduce` method is to be overridden in this class.
+
+Basic template of reducer class -
+```java
+public class [reducer-class] extends Reducer<[key-type-1], [value-type-1], [key-type-2], [value-type-2]> {
+	public void reduce([key-type-1] key, Iterable<[value-type-1]> values, Context context){
+        //body of reducer
+    }
+}
+```
+
+## Driver Class
+
+Driver class is the main class which controls the execution of the program. Here we create a `Job` object and set the driver, mapper, and reducer class used in our program.
+
+Basic template for a driver class-
+```java
+public class [driver-class] {
+	public static void main(String[] args) {
+		Job j = new Job();
+		j.setJobName("My First Job");
+		j.setJarByClass([driver-class].class);
+		j.setMapperClass([mapper-class].class);
+		j.setReducerClass([reducer-class].class);
+		j.setOutputKeyClass([key-type].class);
+		j.setOutputValueClass([value-type].class);
+		FileInputFormat.addInputPath(j, new Path(args[0]));
+		FileOutputFormat.setOutputPath(j, new Path(args[1]));
+		System.exit(job.waitForCompletion(true) ? 0 : 1);
+	}
+
+}
+```
+
 ## How to execute MapReduce 
 
 ### Step 1
@@ -72,7 +140,17 @@ hadoop fs -ls [output-folder]
 hadoop fs -cat [output-folder]/[filename]
 ```
 
-### Examples
+### Example
 
+- for [`WordCount`](./src/WordCount) program (clone this repo to try it, make sure you are in the `WordCount` directory while executing these commands)
+
+```sh
+H_CLASSPATH=$(hadoop classpath)
+javac *.java
+jar -xcf wordcount.jar *.class
+hadoop -fs -put poem.txt
+hadoop jar wordcount.jar poem.txt wordcountout
+hadoop fs -ls wordcountout
 ```
+
 
