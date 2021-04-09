@@ -181,8 +181,8 @@ hadoop fs -cat [output-folder]/[filename]
 H_CLASSPATH=$(hadoop classpath)
 javac *.java -cp $H_CLASSPATH
 jar -cvf wordcount.jar *.class
-hadoop -fs -put poem.txt
-hadoop jar wordcount.jar poem.txt wordcountout
+hadoop fs -put poem.txt
+hadoop jar wordcount.jar WordCountDriver poem.txt wordcountout
 hadoop fs -ls wordcountout
 ```
 

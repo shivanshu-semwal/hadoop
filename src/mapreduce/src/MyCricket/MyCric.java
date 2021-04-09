@@ -1,9 +1,5 @@
 import java.io.IOException;
 
-import java.io.IOException;
-
-import org.apache.hadoop.conf.Configured;
-
 // file system
 import org.apache.hadoop.fs.FileSystem;
 import org.apache.hadoop.fs.Path;

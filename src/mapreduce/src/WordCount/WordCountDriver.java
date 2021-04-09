@@ -1,8 +1,4 @@
-package WordCount;
-
 import java.io.IOException;
-
-import org.apache.hadoop.conf.Configuration;
 
 // file system 
 import org.apache.hadoop.fs.FileSystem;
@@ -19,7 +15,7 @@ import org.apache.hadoop.mapreduce.lib.output.FileOutputFormat;
 
 public class WordCountDriver {
 	public static void main(String[] args) throws IOException, ClassNotFoundException, InterruptedException {
-		
+
 		Job j = new Job();
 		j.setJobName("My First Job");
 		j.setJarByClass(WordCountDriver.class);

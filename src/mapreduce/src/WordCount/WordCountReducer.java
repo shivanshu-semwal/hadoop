@@ -1,5 +1,3 @@
-package WordCount;
-
 // exceptions import
 import java.io.IOException;
 
