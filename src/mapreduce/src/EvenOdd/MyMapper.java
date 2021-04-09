@@ -13,7 +13,7 @@ import org.apache.hadoop.mapreduce.Mapper.Context;
 
 public class MyMapper extends Mapper<LongWritable, Text, Text, IntWritable> {
 
-	public void map(LongWritable key, Text value, Context context) throws java.io.IOException, InterruptedException {
+	public void map(LongWritable key, Text value, Context context) throws IOException, InterruptedException {
 		String data[] = value.toString().split(","); // data = [85 131 993 392 689....]
 		for (String num : data) {
 			int number = Integer.parseInt(num);

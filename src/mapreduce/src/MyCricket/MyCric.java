@@ -20,8 +20,8 @@ import org.apache.hadoop.mapreduce.lib.output.FileOutputFormat;
 public class MyCric {
 	public static void main(String[] args) throws IOException, ClassNotFoundException, InterruptedException {
 
-		Configuration conf = new Configuration();
 		Job j = new Job();
+		j.setJobName("My First Job");
 		j.setJarByClass(MyCric.class);
 		j.setMapperClass(CricMapper.class);
 		j.setReducerClass(CricReducer.class);

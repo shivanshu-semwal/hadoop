@@ -1,8 +1,4 @@
 import java.io.IOException;
-import java.util.Iterator;
-
-// exceptions import
-import java.io.IOException;
 
 // import box classes
 import org.apache.hadoop.io.IntWritable;
@@ -14,12 +10,11 @@ import org.apache.hadoop.mapreduce.Reducer.Context;
 
 public class CricReducer extends Reducer<Text, IntWritable, Text, IntWritable> {
 
-	@Override
-	public void reduce(Text key, Iterator<IntWritable> value, Context context) throws IOException, InterruptedException  {
-		// TODO Auto-generated method stub
-		int count = 0;
-		while (value.hasNext()) {
-			count += value.next().get();
+	public void reduce(Text key, Iterable<IntWritable> values, Context context)
+			throws IOException, InterruptedException {
+		int sum = 0;
+		for (IntWritable value : values) {
+			sum += value.get();
 		}
 		context.write(key, new IntWritable(count));
 	}

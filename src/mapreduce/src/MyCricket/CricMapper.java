@@ -11,9 +11,7 @@ import org.apache.hadoop.mapreduce.Mapper.Context;
 
 public class CricMapper extends Mapper<LongWritable, Text, Text, IntWritable> {
 
-	@Override
-	public void map(LongWritable key, Text value, Context context) throws IOException {
-		// TODO Auto-generated method stub
+	public void map(LongWritable key, Text value, Context context) throws IOException, InterruptedException {
 		String[] data = value.toString().split(",");
 		Integer score = new Integer(data[2]);
 		Integer four = new Integer(data[3]);
