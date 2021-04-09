@@ -82,13 +82,13 @@ public void map(LongWritable key, Text value, Context context) {
      */
 
     /* convering the Text type to native String type so we can perform operations on it */
-	String inputstring = value.toString(); 
+    String inputstring = value.toString(); 
     /* splitting the sentence into words */
     /* "What I won't tell you is how I became a flute" will split into - "What", "I", "won't", ... */
-	for (String x : inputstring.split(" ")) {
+    for (String x : inputstring.split(" ")) {
         /* writing key value pairs to the context object */
-		context.write(new Text(x), new IntWritable(1));
-	}
+        context.write(new Text(x), new IntWritable(1));
+    }
 
     /* 
         sample output, key value pairs written to the context object
@@ -126,15 +126,15 @@ Here are some things we need to consider while making reducer class
 */
 
 public void reduce(Text key, Iterable<IntWritable> values, Context context)
-	int y = 0;
+    int y = 0;
     /* looping over the values of the iterable object */
-	for (IntWritable x : values) {
+    for (IntWritable x : values) {
         /* summing them up */
-		y++;
-	}
+    	y++;
+    }
 
     /* writing the output key value pair to the contexet object */
-	context.write(key, new IntWritable(y));
+    context.write(key, new IntWritable(y));
 }
 ```
 
