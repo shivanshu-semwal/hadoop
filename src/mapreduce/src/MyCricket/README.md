@@ -14,6 +14,15 @@ Input file structure `101,Shikhar Dhawan,100,10,2`
 
 ### How to execute
 
+- to get these files use
+
+```sh
+wget https://raw.githubusercontent.com/shivanshu-semwal/hadoop/master/src/mapreduce/src/MyCricket/get.sh
+chmod +x get.sh
+./get.sh
+cd MyCricket
+```
+
 1. `H_CLASSPATH=$(hadoop classpath)`
    - creating a varible to store the path for the jar files needed for compiling
 2. `javac *.java -cp $H_CLASSPATH`
