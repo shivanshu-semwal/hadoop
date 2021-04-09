@@ -149,7 +149,8 @@ An then the final context object is passed back to the `Job` object in the drive
 H_CLASSPATH=$(hadoop classpath)
 javac -cp $H_CLASSPATH *.java
 jar -cvf wordcount.jar *.class
-hadoop -fs -put poem.txt
+hadoop fs -put poem.txt
 hadoop jar wordcount.jar WordCountDriver poem.txt wordcountout
 hadoop fs -ls wordcountout
+hadoop fs -cat evenodd\part-r-00000
 ```
