@@ -15,7 +15,7 @@ When the blows came furious as juniper.
 
 So input-value type is `Text`, and now we have to decide for the key value, since key value has to be unique we can choose the line no to be its key, and so input-key type is `LongWritable`. A example of key-value pair in this case is `<0, "What I won't tell you is how I became a flute">`.
 
-In output of this program we want the total occurences of a particular word, i.e. output key-value pair will look like `<"the", 5>`.
+In output of this program we want the total occurences of a particular word so output key-value pair will look like `<"the", 5>`.
 
 So here is summary of what will happen:-
 
