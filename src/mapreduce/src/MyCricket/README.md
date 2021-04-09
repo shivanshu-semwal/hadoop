@@ -7,7 +7,7 @@
 
 Input file structure `101,Shikhar Dhawan,100,10,2`
 - 101 - nunber
-- Shikhar Dhawan - name of playe
+- Shikhar Dhawan - name of player
 - 100 - total score
 - 10 - total six
 - 2 - total boundaries

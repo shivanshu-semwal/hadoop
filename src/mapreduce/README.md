@@ -38,6 +38,14 @@ public class [mapper-class] extends Mapper<[key-type1], [value-type-1], [key-typ
 }
 ```
 
+Needed imports
+
+```java
+import java.io.IOException;
+import org.apache.hadoop.mapreduce.Mapper;
+import org.apache.hadoop.mapreduce.Mapper.Context;
+```
+
 ## Reducer Class
 
 Reducer class for a `MapReduce` program extends the abstract class `Reducer`. The `reduce` method is to be overridden in this class.
@@ -49,6 +57,14 @@ public class [reducer-class] extends Reducer<[key-type-1], [value-type-1], [key-
         //body of reducer
     }
 }
+```
+
+Needed imports
+
+```java
+import java.io.IOException;
+import org.apache.hadoop.mapreduce.Reducer;
+import org.apache.hadoop.mapreduce.Reducer.Context;
 ```
 
 ## Driver Class
@@ -71,6 +87,18 @@ public class [driver-class] {
 		System.exit(job.waitForCompletion(true) ? 0 : 1);
 	}
 }
+```
+
+Needed imports
+
+```java
+import org.apache.hadoop.mapreduce.Job;
+import org.apache.hadoop.mapreduce.lib.input.FileInputFormat;
+import org.apache.hadoop.mapreduce.lib.output.FileOutputFormat;
+import org.apache.hadoop.fs.FileSystem;
+import org.apache.hadoop.fs.Path;
+import java.io.IOException;
+import org.apache.hadoop.conf.Configuration;
 ```
 
 ## How to execute MapReduce 
