@@ -56,7 +56,7 @@ public class WordCountDriver {
 
         FileInputFormat.addInputPath(j, new Path(args[0])); // sets the input path, input file
         FileOutputFormat.setOutputPath(j, new Path(args[1])); // sets the output path
-        
+
         System.exit(job.waitForCompletion(true) ? 0 : 1); // return the return value of the job execution
     }
 }
@@ -78,7 +78,6 @@ Here are some thing we need to make a mapper class:
 
 ```java 
 public void map(LongWritable key, Text value, Context context) {
-
     /* 
         sample input
         key - 0, value - "What I won't tell you is how I became a flute"
@@ -98,7 +97,6 @@ public void map(LongWritable key, Text value, Context context) {
         sample output, key value pairs written to the context object
         <"What", 1>, <"I", 1>, <"won't", 1>, ...
     */
-
 }
 ```
 
