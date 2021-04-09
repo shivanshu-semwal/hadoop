@@ -64,7 +64,6 @@ public class [driver-class] {
 		FileOutputFormat.setOutputPath(j, new Path(args[1]));
 		System.exit(job.waitForCompletion(true) ? 0 : 1);
 	}
-
 }
 ```
 
@@ -153,4 +152,4 @@ hadoop jar wordcount.jar poem.txt wordcountout
 hadoop fs -ls wordcountout
 ```
 
-> See complete explation of a sample WordCount MapReduce program - [WordCount](./map-reduce-explain.md)
+> See complete explanation of a sample WordCount MapReduce program - [WordCount](./map-reduce-explain.md)
