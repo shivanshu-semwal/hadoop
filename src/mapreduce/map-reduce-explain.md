@@ -44,15 +44,19 @@ So here is summary of what will happen:-
 ``` java
 public class WordCountDriver {
 	public static void main(String[] args) throws IOException, ClassNotFoundException, InterruptedException {
-        Job j = new Job(); // is creates a new job object.
+        Job j = new Job(); // creates a new job object.
         j.setJobName("My First Job"); // sets the job name
+
         j.setJarByClass(WordCountDriver.class); // sets the name of the driver class
         j.setMapperClass(WordCountMapper.class); // sets the name of the mappper class
         j.setReducerClass(WordCountReducer.class); // sets the name of the reducer class
-        j.setOutputKeyClass(Text.class); // sets the type of the input key
+
+        j.setOutputKeyClass(Text.class); // sets the type of the output key
         j.setOutputValueClass(IntWritable.class); // sets the type of the output value
+
         FileInputFormat.addInputPath(j, new Path(args[0])); // sets the input path, input file
         FileOutputFormat.setOutputPath(j, new Path(args[1])); // sets the output path
+        
         System.exit(job.waitForCompletion(true) ? 0 : 1); // return the return value of the job execution
     }
 }
