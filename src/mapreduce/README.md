@@ -138,7 +138,7 @@ javac -cp $H_CLASSPATH *.java
 - make a jar file of all the `.class` files, using this command
 
 ```
-jar -xcf [jarfilename.jar] *.class
+jar -cvf [jarfilename.jar] *.class
 ```
 
 replace `[jarfilename.jar]` with the name of jar file you want.
@@ -156,7 +156,7 @@ hadoop fs -put [path to files]
 - execute the `MapReduce` program
 
 ```bash
-hadoop jar [jar-file-name.jar] [input-file] [output-folder]
+hadoop jar [jar-file-name.jar] [driver-class-name] [input-file] [output-folder]
 ```
 
 ### Step 6
