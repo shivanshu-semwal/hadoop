@@ -15,7 +15,7 @@ import org.apache.hadoop.mapreduce.Reducer.Context;
 public class CricReducer extends Reducer<Text, IntWritable, Text, IntWritable> {
 
 	@Override
-	public void reduce(Text key, Iterator<IntWritable> value, Context context) throws IOException {
+	public void reduce(Text key, Iterator<IntWritable> value, Context context) throws IOException, InterruptedException  {
 		// TODO Auto-generated method stub
 		int count = 0;
 		while (value.hasNext()) {
