@@ -1,5 +1,11 @@
 # MapReduce
 
+## Examples
+
+- [`WordCount`](./src/WordCount)
+- [`EvenOdd`](./src/EvenOdd)
+- [`MyCricket`](./src/MyCricket)
+
 ## Box Classes
 
 `Serialization` is the process of converting object data into byte stream data for transmission over a network across different nodes in a cluster or for persistent data storage.
