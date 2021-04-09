@@ -153,4 +153,4 @@ hadoop jar wordcount.jar poem.txt wordcountout
 hadoop fs -ls wordcountout
 ```
 
-
+> See complete explation of a sample WordCount MapReduce program - [WordCount](./map-reduce-explain.md)
